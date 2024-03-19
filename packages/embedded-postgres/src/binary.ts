@@ -38,6 +38,8 @@ function getBinaries(): Promise<PostgresBinaries> {
         case 'win32':
             switch(arch) {
                 case 'x64':
+                    import('@embedded-postgres/linux-x64');
+                    import('@embedded-postgres/darwin-x64');
                     return import('@embedded-postgres/windows-x64');
                 default:
                     throw new Error(`Unsupported arch "${arch}" for platform "${platform}"`);
